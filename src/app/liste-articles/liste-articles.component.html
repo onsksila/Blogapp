@@ -1,0 +1,20 @@
+<br>
+<br>
+<div class="container"><h1 class="titre" style="text-align: center">Liste-Blog</h1>
+
+<div class="form-inline my-2 my-lg-0">
+<input type="text" class="form-control mr-sm-2" placeholder="Search Here" [(ngModel)]="term">
+</div>
+<table class="table">
+  <tbody>
+  <tr>
+    <div *ngFor="let a of articles | filter:term ; let i=index">
+
+      <td><app-article [article]="a" (del)="suppA(a)"></app-article></td>
+
+    </div>
+  </tr>
+  </tbody>
+</table>
+</div>
+<app-formulaire (newListeA)="updateListe($event)"></app-formulaire>

@@ -1,0 +1,25 @@
+                <div class="col-sm-10 col-sm-offset-1 blog-item mb100 wow match-height">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="hover-item mb30">
+                        <img src="assets/Kompleet/assets/img/news/1-wide.jpeg" class="img-responsive smoothie" alt="title">
+                        <div class="overlay-item-caption smoothie"></div>
+                        <div class="hover-item-caption smoothie">
+                        </div>
+                      </div>
+                      <h2 class="post-title">{{article.id}}.{{article.titre}}</h2>
+                      <div class="item-metas text-muted mb30">
+                        <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> CATEGORIE <span>{{article.categorie}}</span></span>
+                        <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTEUR <span>{{article.auteur}}</span></span>
+                      </div>
+                      <p>{{article.description}}</p>
+                      <button class="btn btn-danger mt30" (click)="delA(article)">supprimer</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button class="btn btn-info mt30" [routerLink]="['/update',article.id]">Modifier</button>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+

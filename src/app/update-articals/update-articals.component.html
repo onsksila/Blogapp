@@ -1,0 +1,30 @@
+<br>
+<h1 class="title">Modifier votre article</h1>
+<form [formGroup]="myForm" (ngSubmit)="updateA()">
+  Id <input type="text" formControlName="id" [(ngModel)]="a.id" disabled />
+  <div *ngIf="myForm.get('id').invalid">id obligatoir </div>
+  <br>
+  titre<input type="text" formControlName="titre" [(ngModel)]="a.titre" />
+  <div *ngIf="myForm.get('titre').invalid">
+    <div *ngIf="myForm.get('titre').touched && myForm.get('titre').errors.required">Title obligatoire </div>
+    <div *ngIf="myForm.get('titre').errors.minlength">minlength=3 </div>
+  </div>
+  <br>
+  auteur <input type="text" formControlName="auteur" [(ngModel)]="a.auteur"/>
+  <div *ngIf="auteurA.invalid">auteur obligatoir </div>
+  <br>
+  categorie <input type="text" formControlName="categorie" [(ngModel)]="a.categorie" />
+  <div *ngIf="catA.invalid">
+    <div *ngIf="catA.touched && catA.errors.required">cat obligatoire </div>
+  </div>
+  <br>
+  <br>
+  description <input type="text" formControlName="description" [(ngModel)]="a.description" />
+  <div *ngIf="descA.invalid">
+    <div *ngIf="descA.touched && descA.errors.required">des obligatoire </div>
+  </div>
+  <br>
+  <button type="submit" [disabled]="myForm.invalid" class="btn-info">Modifier</button>
+</form>
+
+

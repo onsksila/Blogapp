@@ -1,0 +1,11 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "titre": "titre article1",
+      "auteur": "ksila ons",
+      "categorie": "voyage",
+      "description": "description de larticle 1"
+    }
+  ]
+}

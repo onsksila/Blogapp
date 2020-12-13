@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Article} from './models/Article';
+import {ArticleService} from './shared/article.service';
 
 @Component({
   selector: 'app-root',

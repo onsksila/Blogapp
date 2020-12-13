@@ -1,0 +1,53 @@
+
+<div class="container" >
+  <form #f="ngForm">
+    <div class="form-group">
+      <label>Id: </label>
+      <input type="number" name="id" [(ngModel)]="article.id" #id="ngModel" required placeholder="L'id de l'article (1,2,...)">
+      <div class="alert alert-danger" [hidden]="!id.invalid || !id.touched">
+        Id obligatoire.
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Titre: </label>
+      <input type="text" name="titre" [(ngModel)]="article.titre" #t="ngModel" required minlength="3" maxlength="20" placeholder="Titre de votre article">
+      <div *ngIf="t.invalid && t.touched">
+        <div class="alert alert-danger" *ngIf="t.errors?.required" >Titre obligatoire</div>
+        <div class="alert alert-danger" *ngIf="t.errors?.minlength">Vous devez tapper +3 caracteres</div>
+        <div class="alert alert-danger" *ngIf="t.errors?.maxlength">Vous devez tapper -16 caracteres</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Auteur: </label>
+      <input type="text" name="auteur"  [(ngModel)]="article.auteur" #au="ngModel" required pattern="[a-zA-Z ]*" placeholder="Votre nom">
+      <div class="alert alert-danger" *ngIf="au.errors?.required && au.touched">
+        Le nom est obligatoire
+      </div>
+      <div class="alert alert-danger" *ngIf="au.errors?.pattern">
+        Vous ne pouvez pas utiliser d'autres caracteres apart les alphabets.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Categorie: </label>
+      <input type="text"  name="categorie"  [(ngModel)]="article.categorie" #c="ngModel" required placeholder="e.g: Auto, Livre, Beauté etc...">
+      <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+        Categorie obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description: </label>
+      <input type="text" name="des" [(ngModel)]="article.description" #d="ngModel" required minlength="10" placeholder="Description de votre article">
+      <div class="alert alert-danger" *ngIf="d.errors?.required && d.touched">
+        Description obligatoire
+      </div>
+      <div class="alert alert-danger" *ngIf="d.errors?.minlength">
+        Description minimum 10 caracteres
+      </div>
+    </div>
+    <button [disabled]="f.invalid" (click)="addArticle()" >Save <i class="fa fa-check" aria-hidden="true"></i></button>
+  </form>
+</div>
